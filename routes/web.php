@@ -69,6 +69,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Order Log
     Route::resource('order-logs', 'OrderLogController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
+
+    // Order Report
+    Route::resource('order-reports', 'OrderReportController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
+
+    // Product Report
+    Route::resource('product-reports', 'ProductReportController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
+
+    // Store Report
+    Route::resource('store-reports', 'StoreReportController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

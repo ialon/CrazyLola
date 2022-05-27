@@ -284,6 +284,22 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 69,
+                'title' => 'report_management_access',
+            ],
+            [
+                'id'    => 70,
+                'title' => 'order_report_access',
+            ],
+            [
+                'id'    => 71,
+                'title' => 'product_report_access',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'store_report_access',
+            ],
+            [
+                'id'    => 73,
                 'title' => 'profile_password_edit',
             ],
         ];
