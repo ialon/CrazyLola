@@ -73,11 +73,11 @@ return [
     ],
     'storeManagement' => [
         'title'          => 'Almacenes',
-        'title_singular' => 'Almacene',
+        'title_singular' => 'Almacen',
     ],
     'distributor' => [
         'title'          => 'Distribuidores',
-        'title_singular' => 'Distribuidore',
+        'title_singular' => 'Distribuidor',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -97,7 +97,7 @@ return [
     ],
     'location' => [
         'title'          => 'Ubicaciones',
-        'title_singular' => 'Ubicacione',
+        'title_singular' => 'Ubicacion',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -125,7 +125,7 @@ return [
     ],
     'store' => [
         'title'          => 'Listado',
-        'title_singular' => 'Listado',
+        'title_singular' => 'Almacen',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -199,7 +199,7 @@ return [
     ],
     'order' => [
         'title'          => 'Listado',
-        'title_singular' => 'Listado',
+        'title_singular' => 'Orden',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -335,7 +335,7 @@ return [
     ],
     'orderLog' => [
         'title'          => 'Ordenes',
-        'title_singular' => 'Ordene',
+        'title_singular' => 'Orden',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -363,7 +363,7 @@ return [
     ],
     'orderReport' => [
         'title'          => 'Ordenes',
-        'title_singular' => 'Ordene',
+        'title_singular' => 'Orden',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -405,7 +405,7 @@ return [
     ],
     'storeReport' => [
         'title'          => 'Almacenes',
-        'title_singular' => 'Almacene',
+        'title_singular' => 'Almacen',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
