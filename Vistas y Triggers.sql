@@ -6,7 +6,7 @@ CREATE TRIGGER update_products
     FOR EACH ROW
 BEGIN
 	SET NEW.updated_at = SYSDATE();
-    INSERT INTO product_logs(id,sku,status,name,description,unit_price,weight,due_date,production_date,created_at,updated_at,deleted_at) values(old.id,old.sku,old.status_id,old.name,old.description,old.unit_price,old.weight,old.due_date,old.production_date,old.created_at,new.updated_at,old.deleted_at);
+    INSERT INTO product_logs(sku,status,name,description,unit_price,weight,due_date,production_date,created_at,updated_at,deleted_at) values(old.sku,old.status_id,old.name,old.description,old.unit_price,old.weight,old.due_date,old.production_date,old.created_at,new.updated_at,old.deleted_at);
 END
 $$
 
@@ -30,7 +30,7 @@ CREATE TRIGGER update_inventories
 BEGIN
 	SET new.updated_at = SYSDATE();
     INSERT INTO inventory_logs(inventory,quantity,store,product,created_at,updated_at,deleted_at) values(old.id,old.quantity,old.store_id,old.product_id,old.created_at,new.updated_at,old.deleted_at);
-END;
+END
 $$
 
 
@@ -53,7 +53,8 @@ CREATE TRIGGER update_orders
     FOR EACH ROW
 BEGIN
 	SET new.updated_at = SYSDATE();
-    INSERT INTO order_logs(id,order_date,user,distributor,status,created_at,updated_at,deleted_at) values(old.id,old.order_date,old.user_id,old.distributor_id,old.status_id,old.created_at,new.updated_at,old.deleted_at);
+    INSERT INTO `order_logs` (`order`, `order_date`, `user`, `distributor`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES (old.id, old.order_date, old.user_id, old.distributor_id, old.status_id, old.created_at, new.updated_at, old.deleted_at);
+INSERT INTO order_logs(id,order_date,user,distributor,status,created_at,updated_at,deleted_at) values(old.id,old.order_date,old.user_id,old.distributor_id,old.status_id,old.created_at,new.updated_at,old.deleted_at);
 END
 $$
 
@@ -63,7 +64,7 @@ CREATE TRIGGER delete_orders
     BEFORE DELETE ON orders
     FOR EACH ROW
 BEGIN	
-    INSERT INTO order_logs(id,order_date,user,distributor,status,created_at,updated_at,deleted_at) values(old.id,old.order_date,old.user_id,old.distributor_id,old.status_id,old.created_at,old.updated_at,SYSDATE());
+INSERT INTO order_logs(id,order_date,user,distributor,status,created_at,updated_at,deleted_at) values(old.id,old.order_date,old.user_id,old.distributor_id,old.status_id,old.created_at,old.updated_at,SYSDATE());
 END
 $$
 
@@ -77,7 +78,7 @@ BEGIN
     return dateadd(month,((Y-1900)*12)+M-1,D-1)
 END
 
---get only date function
+---get only date function
 CREATE Function fnDateOnly(DT DateTime)
 returns datetime
 AS
