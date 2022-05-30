@@ -6,7 +6,7 @@ CREATE TRIGGER update_products
     FOR EACH ROW
 BEGIN
 	SET NEW.updated_at = SYSDATE();
-    INSERT INTO products_logs(id,sku,status,name,description,unit_price,weight,due_date,production_date,created_at,updated_at,deleted_at) values(old.id,old.sku,old.status_id,old.name,old.description,old.unit_price,old.weight,old.due_date,old.production_date,old.created_at,new.updated_at,old.deleted_at);
+    INSERT INTO product_logs(id,sku,status,name,description,unit_price,weight,due_date,production_date,created_at,updated_at,deleted_at) values(old.id,old.sku,old.status_id,old.name,old.description,old.unit_price,old.weight,old.due_date,old.production_date,old.created_at,new.updated_at,old.deleted_at);
 END
 $$
 
